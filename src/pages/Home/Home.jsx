@@ -17,7 +17,7 @@ const Home = () => {
     const fetchArtworks = async () => {
       try {
         const response = await axios.get(
-          "https://art-folio-backend.onrender.com/api/artworks"
+          "https://art-folio-backend.onrender.com/api/api/artworks"
         );
         const processedArtworks = response.data.map((artwork) => ({
           ...artwork,

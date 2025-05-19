@@ -34,7 +34,7 @@ function App() {
       try {
         setLoading(true);
         const artworksResponse = await axios.get(
-          "https://art-folio-backend.onrender.com/api/artworks"
+          "https://art-folio-backend.onrender.com/api/api/artworks"
         );
         if (Array.isArray(artworksResponse.data)) {
           setArtworks(artworksResponse.data);
