@@ -10,10 +10,6 @@ const axiosInstance = axios.create({
 
 axiosInstance.interceptors.request.use(
   (config) => {
-    if (!config.url.startsWith("/api")) {
-      config.url = `/api${config.url.startsWith("/") ? "" : "/"}${config.url}`;
-    }
-
     const token = localStorage.getItem("token");
     if (token) {
       config.headers.Authorization = `Bearer ${token}`;
