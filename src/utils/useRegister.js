@@ -22,7 +22,7 @@ export const useRegister = () => {
         throw new Error("Vă rugăm să completați toate câmpurile");
       }
 
-      await axiosInstance.post("/api/auth/register", formData);
+      await axiosInstance.post("/auth/register", formData);
       navigate("/login");
     } catch (error) {
       setError(error.response?.data?.message || "Eroare la înregistrare");
