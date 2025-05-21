@@ -19,7 +19,7 @@ const ProfileContact = () => {
 
   useEffect(() => {
     if (user?.profileImage) {
-      const imageUrl = `https://art-folio-backend.onrender.com/api${user.profileImage}`;
+      const imageUrl = `https://art-folio-backend.onrender.com${user.profileImage}`;
       setProfileImage(imageUrl);
     }
   }, [user]);
