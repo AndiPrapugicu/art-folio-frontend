@@ -10,7 +10,6 @@ const ProfileSidebar = ({ user, isMainProfile }) => (
       <Link to={`/profile/${user?.username}`}>ABOUT</Link>
       <Link to={`/profile/${user?.username}/contact`}>CONTACT</Link>
       <Link to={`/profile/${user?.username}/shop`}>SHOP</Link>
-      <Link to="https://www.instagram.com/the.manlyman_/">INSTAGRAM</Link>
     </nav>
     <div className="profile-social" />
   </div>
