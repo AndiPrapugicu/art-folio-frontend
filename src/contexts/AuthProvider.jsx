@@ -17,7 +17,7 @@ export const AuthProvider = ({ children }) => {
   }, []);
 
   const login = (userData, token) => {
-    console.log("Încercare de autentificare cu:", { userData, token });
+    // console.log("Încercare de autentificare cu:", { userData, token });
 
     // Verificăm dacă token-ul conține datele utilizatorului
     const userInfo = token && typeof token === "object" ? token : userData;
@@ -27,7 +27,7 @@ export const AuthProvider = ({ children }) => {
       localStorage.setItem("user", JSON.stringify(userInfo));
       setIsLoggedIn(true);
       setUser(userInfo);
-      console.log("Autentificare reușită:", userInfo);
+      // console.log("Autentificare reușită:", userInfo);
     } else {
       console.error("Date de utilizator invalide la autentificare", {
         userData,

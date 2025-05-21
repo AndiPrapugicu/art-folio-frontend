@@ -26,7 +26,7 @@ export const AuthProvider = ({ children }) => {
           ] = `Bearer ${token}`;
           const response = await axiosInstance.get("/auth/current");
           if (response.data) {
-            console.log("Date utilizator primite de la server:", response.data);
+            // console.log("Date utilizator primite de la server:", response.data);
             setUser(response.data);
             setIsLoggedIn(true);
             localStorage.setItem("user", JSON.stringify(response.data));
@@ -50,7 +50,7 @@ export const AuthProvider = ({ children }) => {
   }, []);
 
   const updateUser = useCallback((userData) => {
-    console.log("Actualizare date utilizator:", userData);
+    // console.log("Actualizare date utilizator:", userData);
     setUser(userData);
     setIsLoggedIn(true);
     localStorage.setItem("user", JSON.stringify(userData));
@@ -67,10 +67,10 @@ export const AuthProvider = ({ children }) => {
   }, []);
 
   const login = async (credentials) => {
-    console.log("🚀 [AuthContext] Starting login process", {
-      email: credentials.email,
-      hasPassword: !!credentials.password,
-    });
+    // console.log("🚀 [AuthContext] Starting login process", {
+    //   email: credentials.email,
+    //   hasPassword: !!credentials.password,
+    // });
 
     try {
       if (!credentials.email || !credentials.password) {
@@ -79,12 +79,12 @@ export const AuthProvider = ({ children }) => {
 
       const response = await axiosInstance.post("/auth/login", credentials);
 
-      console.log("✅ [AuthContext] Răspuns server:", {
-        status: response.status,
-        hasData: !!response.data,
-        hasToken: !!response.data?.token,
-        hasUser: !!response.data?.user,
-      });
+      // console.log("✅ [AuthContext] Răspuns server:", {
+      //   status: response.status,
+      //   hasData: !!response.data,
+      //   hasToken: !!response.data?.token,
+      //   hasUser: !!response.data?.user,
+      // });
 
       if (!response.data?.token || !response.data?.user) {
         console.error(
@@ -100,10 +100,10 @@ export const AuthProvider = ({ children }) => {
       setIsLoggedIn(true);
       setUser(response.data.user);
 
-      console.log(
-        "✅ [AuthContext] Autentificare reușită pentru:",
-        credentials.email
-      );
+      // console.log(
+      //   "✅ [AuthContext] Autentificare reușită pentru:",
+      //   credentials.email
+      // );
       return response.data;
     } catch (error) {
       console.error("❌ [AuthContext] Eroare la autentificare:", {

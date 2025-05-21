@@ -59,7 +59,7 @@ const ProfileNews = () => {
         formData.append("image", newArticle.image);
       }
 
-      console.log("Sending formData:", Object.fromEntries(formData)); // Pentru debugging
+      // console.log("Sending formData:", Object.fromEntries(formData));
 
       const response = await axiosInstance.post("/news", formData, {
         headers: {
@@ -67,7 +67,7 @@ const ProfileNews = () => {
         },
       });
 
-      console.log("Response:", response.data); // Pentru debugging
+      // console.log("Response:", response.data);
 
       await fetchNews();
       setIsAddingNews(false);

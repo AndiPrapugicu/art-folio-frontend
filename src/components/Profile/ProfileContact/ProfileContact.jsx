@@ -65,7 +65,7 @@ const ProfileContact = () => {
         contactMessage,
       });
 
-      console.log("Response from server:", response.data); // Pentru debugging
+      // console.log("Response from server:", response.data); 
 
       if (response.data?.success) {
         // Actualizăm token-ul
@@ -92,7 +92,7 @@ const ProfileContact = () => {
           bio: serverUser.bio,
         };
 
-        console.log("Updating user with:", updatedUser); // Pentru debugging
+        // console.log("Updating user with:", updatedUser);
 
         updateUser(updatedUser);
         setIsEditingContact(false);
