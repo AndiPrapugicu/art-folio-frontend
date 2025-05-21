@@ -97,9 +97,9 @@ export const usePortfolioDetail = (initialArtworks = []) => {
 
       let url;
       if (urlUsername) {
-        url = `/api/artworks/${urlUsername}/${encodeURIComponent(category)}`;
+        url = `/artworks/${urlUsername}/${encodeURIComponent(category)}`;
       } else if (isLoggedIn && user?.username) {
-        url = `/api/artworks/user/${encodeURIComponent(category)}`;
+        url = `/artworks/user/${encodeURIComponent(category)}`;
       } else {
         throw new Error(
           "Context invalid - nu avem nici username nici user autentificat"

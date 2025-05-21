@@ -54,7 +54,7 @@ const UploadArtwork = () => {
     formDataToSend.append("image", formData.image);
 
     try {
-      await axiosInstance.post("/api/artworks", formDataToSend, {
+      await axiosInstance.post("/artworks", formDataToSend, {
         headers: {
           "Content-Type": "multipart/form-data",
         },
