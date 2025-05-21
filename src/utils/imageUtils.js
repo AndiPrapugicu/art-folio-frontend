@@ -1,16 +1,12 @@
-const API_URL =
-  import.meta.env.VITE_API_URL || "https://art-folio-backend.onrender.com/api";
+const BACKEND_URL = "https://art-folio-backend.onrender.com";
 
-export const getImageUrl = (imagePath) => {
-  if (!imagePath) return "/placeholder-image.jpg";
-
-  if (imagePath.startsWith("http")) {
-    return imagePath;
+export function getImageUrl(imageUrl, folder = "") {
+  if (!imageUrl) return "";
+  if (imageUrl.startsWith("http")) return imageUrl;
+  // Dacă imageUrl începe cu /uploads, nu mai adăuga folderul
+  if (imageUrl.startsWith("/uploads")) {
+    return `${BACKEND_URL}${imageUrl}`;
   }
-
-  if (imagePath.startsWith("/uploads")) {
-    return `${API_URL}${imagePath}`;
-  }
-
-  return `${API_URL}/uploads/${imagePath}`;
-};
+  // fallback pentru cazuri vechi
+  return `${BACKEND_URL}/uploads/${folder}/${imageUrl}`;
+}
