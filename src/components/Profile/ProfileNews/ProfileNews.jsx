@@ -203,7 +203,13 @@ const ProfileNews = () => {
                   <div key={item.id} className="news-card">
                     {item.imageUrl && (
                       <img
-                        src={`${API_URL}${item.imageUrl}`}
+                        src={
+                          item.imageUrl?.startsWith("http")
+                            ? item.imageUrl
+                            : `${API_URL}${
+                                item.imageUrl.startsWith("/") ? "" : "/"
+                              }${item.imageUrl}`
+                        }
                         alt={item.title}
                       />
                     )}
@@ -248,7 +254,13 @@ const ProfileNews = () => {
                   <h2>{selectedNews.title}</h2>
                   {selectedNews.imageUrl && (
                     <img
-                      src={`${API_URL}${selectedNews.imageUrl}`}
+                      src={
+                        selectedNews.imageUrl?.startsWith("http")
+                          ? selectedNews.imageUrl
+                          : `${API_URL}${
+                              selectedNews.imageUrl.startsWith("/") ? "" : "/"
+                            }${selectedNews.imageUrl}`
+                      }
                       alt={selectedNews.title}
                       className="modal-image"
                     />
